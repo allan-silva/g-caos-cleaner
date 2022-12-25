@@ -9,7 +9,11 @@ import java.nio.CharBuffer
 import java.nio.charset.StandardCharsets
 import scala.util.control.Breaks.{break, breakable}
 
+
 class HttpServerSuite extends FunSuite {
+
+  val CONTENT_TYPE_HEADER = "Content-Length: "
+
   test("Setup Standalone HttpServer") {
     val server = ServerSocket(9999)
     val clientSocket = server.accept
@@ -32,11 +36,14 @@ class HttpServerSuite extends FunSuite {
     val line = clientBuffer.readLine()
 
     if line.isBlank then {
+      if contentLenght == 0 then {
+        return ""
+      }
       get_body(clientBuffer, contentLenght, true)
     }  else {
-      val contentTypeIndex = line indexOf "Content-Length: "
+      val contentTypeIndex = line indexOf CONTENT_TYPE_HEADER
       if contentTypeIndex > -1 then {
-        val cl = (line substring "Content-Length: ".length).toInt
+        val cl = (line substring CONTENT_TYPE_HEADER.length).toInt
         get_body(clientBuffer, cl, startBody)
       } else {
         get_body(clientBuffer, contentLenght, startBody)
