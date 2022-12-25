@@ -12,4 +12,5 @@ lazy val root = project
     libraryDependencies += "com.google.api-client" % "google-api-client" % "2.1.1",
     libraryDependencies += "com.google.oauth-client" % "google-oauth-client" % "1.34.1",
     libraryDependencies += "com.google.apis" % "google-api-services-gmail" % "v1-rev110-1.25.0",
+    libraryDependencies += "org.apache.httpcomponents.client5" % "httpclient5" % "5.2.1"
   )
