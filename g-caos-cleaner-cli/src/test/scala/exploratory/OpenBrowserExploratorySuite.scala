@@ -2,7 +2,7 @@ package exploratory
 
 import munit.FunSuite
 
-import scala.sys.process._
+import scala.sys.process.*
 
 class OpenBrowserExploratorySuite extends FunSuite {
   test("Open Browser") {
