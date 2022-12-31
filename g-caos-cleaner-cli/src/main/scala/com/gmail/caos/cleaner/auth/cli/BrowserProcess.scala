@@ -1,4 +1,4 @@
-package auth
+package com.gmail.caos.cleaner.auth.cli
 
 import scala.sys.process.*
 
