@@ -10,22 +10,14 @@ import org.apache.hc.client5.http.impl.io.LenientHttpResponseParser
 import org.apache.hc.core5.http.ProtocolVersion
 import org.apache.hc.core5.http.config.Http1Config
 import org.apache.hc.core5.http.impl.io.*
-import org.apache.hc.core5.http.message.{
-  BasicClassicHttpResponse,
-  BasicLineParser
-}
+import org.apache.hc.core5.http.message.{BasicClassicHttpResponse, BasicLineParser}
 import org.apache.http.client.utils.URLEncodedUtils
 import org.apache.http.impl.io.HttpTransportMetricsImpl
 import sttp.client3.*
 import sttp.client3.upicklejson.*
 import upickle.default.*
 
-import java.io.{
-  BufferedReader,
-  ByteArrayInputStream,
-  ByteArrayOutputStream,
-  InputStreamReader
-}
+import java.io.{BufferedReader, ByteArrayInputStream, ByteArrayOutputStream, InputStreamReader}
 import java.net.{ServerSocket, Socket}
 import java.nio.CharBuffer
 import java.nio.charset.StandardCharsets
@@ -77,7 +69,7 @@ class AuthFlowExploratory extends FunSuite {
     assert(queryMap contains "test")
   }
 
-  test("Auth flow - Open Browser".ignore) {
+  test("Auth flow - Open Browser") {
     "xdg-open http://localhost:5000".!
     val code_response = wait_for_response()
     println(code_response)

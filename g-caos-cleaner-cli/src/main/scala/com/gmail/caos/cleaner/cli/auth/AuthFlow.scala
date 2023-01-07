@@ -1,15 +1,21 @@
-package com.gmail.caos.cleaner.auth.cli
+package com.gmail.caos.cleaner.cli.auth
 
+import com.gmail.caos.cleaner.cli.auth.miniserver.MiniServer
 import com.gmail.caos.cleaner.core.auth.{AuthFlowProvider, AuthSettings}
 
-class AuthFlow(val miniServer: MiniServer, browserProcess: BrowserProcess, middlewareClient: MiddlewareClient):
+class AuthFlow(
+    val miniServer: MiniServer,
+    browserProcess: BrowserProcess,
+    middlewareClient: MiddlewareClient
+):
   private def requestUserConsent(): Unit = print("")
   private def getAuthResponse(): AuthCodeResponse = AuthCodeResponse("")
   private def requestAuthSettings(code: String): AuthSettings = AuthSettings("")
 
 object AuthFlow extends AuthFlowProvider:
   def execute(): AuthSettings =
-    val authFlow: AuthFlow = AuthFlow(MiniServer.default, defaultBrowser, defaultMiddleware)
+    val authFlow: AuthFlow =
+      AuthFlow(MiniServer.default, defaultBrowser, defaultMiddleware)
     authFlow.requestUserConsent()
     authFlow.requestAuthSettings(authFlow.getAuthResponse().code)
 

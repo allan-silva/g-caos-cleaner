@@ -1,3 +1,3 @@
-package com.gmail.caos.cleaner.auth.cli
+package com.gmail.caos.cleaner.cli.auth
 
 case class AuthCodeResponse(code: String)

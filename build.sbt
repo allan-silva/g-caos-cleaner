@@ -7,6 +7,7 @@ val GoogleOAuthClientVersion = "1.34.1"
 val GoogleApiGMailVersion = "v1-rev110-1.25.0"
 val ApacheHttpClientVersion = "5.2.1"
 val SttpVersion = "3.8.5"
+val scalaTestVersion = "3.2.14"
 
 val commonSettings = Seq(
   libraryDependencies ++= Seq(
@@ -31,7 +32,7 @@ lazy val cli = (project in file("g-caos-cleaner-cli"))
       "com.google.apis" % "google-api-services-gmail" % GoogleApiGMailVersion,
       "org.apache.httpcomponents.client5" % "httpclient5" % ApacheHttpClientVersion,
       "com.softwaremill.sttp.client3" %% "core" % SttpVersion,
-      "com.softwaremill.sttp.client3" %% "upickle" % SttpVersion
+      "com.softwaremill.sttp.client3" %% "upickle" % SttpVersion,
     )
   )
   .dependsOn(core)
